@@ -1,8 +1,10 @@
 package com.unisinos.sd.rmiclient;
 
-import com.unisinos.sd.rmiinterfaces.PrintingInterface;
+import com.unisinos.sd.rmiinterfaces.CheckingAccount;
+
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Scanner;
 
 /**
  * Main class for a client.
@@ -29,21 +31,22 @@ public class RMIClientMain {
         }
         
         try {
-            String name = "RMI-EchoMessage";
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Account to get:");
+            String name = scan.nextLine();
+
             Registry registry = LocateRegistry.getRegistry("localhost");
-            PrintingInterface comp = (PrintingInterface) registry.lookup(name);
+            CheckingAccount comp = (CheckingAccount) registry.lookup(name);
+
+            System.out.println("Amount to deposit:");
+            double accountAmount = scan.nextDouble();
+
+            System.out.println("About to try to deposit!");
+            comp.deposit( accountAmount );
             
-            System.out.println("About to try to print!");
-            
-            String messageToEcho = "Hi from the client!";
-            if( args.length > 0 ){
-                messageToEcho = args[ 0 ];
-            }
-            int returnVal = comp.echoMessage( messageToEcho );
-            
-            System.out.println( "The return value from the server is: " + returnVal );
+            System.out.println( "The return value from the server is: " + comp.getTotalAmount() );
         } catch (Exception e) {
-            System.err.println( "Exception while trying to echo:" );
+            System.err.println( "Exception while trying to remote call:" );
             e.printStackTrace();
         }
     }

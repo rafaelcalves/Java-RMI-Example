@@ -1,6 +1,6 @@
-package com.rm5248.rmiserver;
+package com.unisinos.sd.rmiserver;
 
-import com.rm5248.rmiinterfaces.PrintingInterface;
+import com.unisinos.sd.rmiinterfaces.PrintingInterface;
 import java.rmi.RemoteException;
 
 /**

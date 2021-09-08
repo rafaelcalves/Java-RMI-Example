@@ -1,4 +1,4 @@
-package com.rm5248.rmiinterfaces;
+package com.unisinos.sd.rmiinterfaces;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

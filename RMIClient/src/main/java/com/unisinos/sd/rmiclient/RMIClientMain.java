@@ -1,6 +1,6 @@
-package com.rm5248.rmiclient;
+package com.unisinos.sd.rmiclient;
 
-import com.rm5248.rmiinterfaces.PrintingInterface;
+import com.unisinos.sd.rmiinterfaces.PrintingInterface;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 

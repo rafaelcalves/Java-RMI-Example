@@ -40,7 +40,7 @@ public class DefaultCheckingAccountTest {
                     comp.deposit(100);
                     comp.withdraw(100);
                     System.out.println("Total in account (thread " + currentThread + "): " + comp.getTotalAmount());
-                } catch (RemoteException | InterruptedException e) {
+                } catch (RemoteException e) {
                     e.printStackTrace();
                     fail();
                     return;
